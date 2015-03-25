@@ -1,0 +1,57 @@
+buildscript {
+    ext {
+        springBootVersion = "1.2.2.RELEASE"
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: springBootVersion
+        classpath group: 'org.springframework', name: 'springloaded', version: '1.2.1.RELEASE'
+        classpath group: 'com.h2database', name:'h2', version: '1.4.186'
+        classpath group: 'org.flywaydb', name: 'flyway-gradle-plugin', version: '3.2.1'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'org.flywaydb.flyway'
+apply plugin: 'war'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven {url 'http://amateras.sourceforge.jp/mvn'}    // for mirage
+    maven {url 'http://maven.xet.jp/release'}            // for spring-data-mirage
+}
+
+ext {
+    springBootVersion = "1.2.2.RELEASE"
+}
+
+dependencies {
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.3.4'
+    compile group: 'org.springframework.boot', name:'spring-boot-starter-web', version: springBootVersion
+    compile group: 'org.springframework.data', name:'spring-data-mirage', version: '0.3.1.RELEASE'
+    compile group: 'org.springframework', name:'spring-tx', version: '4.1.5.RELEASE'
+    compile group: 'org.springframework', name:'spring-jdbc', version: '4.1.5.RELEASE'
+    compile group: 'org.thymeleaf', name: 'thymeleaf-spring4', version: '2.1.4.RELEASE'
+    compile group: 'com.h2database', name:'h2', version: '1.4.186'
+
+    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.16.2'
+
+    testCompile (group: 'junit', name: 'junit', version: '4.11') {
+        exclude module: 'hamcrest-core'
+    }
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+    testCompile group: 'org.springframework.boot', name:'spring-boot-starter-test', version: springBootVersion
+
+}
+
+flyway {
+    url = 'jdbc:h2:file:target/foobar'
+    user = 'sa'
+}
