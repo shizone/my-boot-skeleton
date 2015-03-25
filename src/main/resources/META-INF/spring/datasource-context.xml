@@ -8,7 +8,7 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.h2.Driver" />
-        <property name="url" value="jdbc:h2:file:target/foobar" />
+        <property name="url" value="jdbc:h2:file:./build/h2/sample" />
         <property name="username" value="sa" />
         <property name="password" value="" />
     </bean>

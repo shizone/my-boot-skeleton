@@ -7,5 +7,5 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
     <import resource="classpath:/META-INF/spring/mirage-context.xml" />
-    <mirage:repositories base-package="hello" sql-manager-ref="sqlManager" />
+    <mirage:repositories base-package="hello.repository" sql-manager-ref="sqlManager" />
 </beans>
