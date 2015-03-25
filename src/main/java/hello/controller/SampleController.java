@@ -16,7 +16,7 @@ public class SampleController {
 
     @RequestMapping("/")
     String home(Model model){
-        model.addAttribute("name", personService.findPerson(1).getName());
+        model.addAttribute("people", personService.findAllPeople());
         return "sample";
     }
 }
