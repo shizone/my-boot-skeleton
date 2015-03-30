@@ -9,7 +9,7 @@ buildscript {
     }
     dependencies {
         classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: springBootVersion
-        classpath group: 'org.springframework', name: 'springloaded', version: '1.2.2.RELEASE'
+        classpath group: 'org.springframework', name: 'springloaded', version: '1.2.3.RELEASE'
         classpath group: 'com.h2database', name:'h2', version: '1.4.186'
         classpath group: 'org.flywaydb', name: 'flyway-gradle-plugin', version: '3.2.1'
     }
@@ -48,6 +48,8 @@ ext {
 dependencies {
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.3.4'
     compile group: 'org.springframework.boot', name:'spring-boot-starter-web', version: springBootVersion
+    compile group: 'org.springframework.boot', name:'spring-boot-starter-security', version: springBootVersion
+    compile group: 'org.springframework.boot', name:'spring-boot-starter-thymeleaf', version: springBootVersion
     compile group: 'org.springframework.data', name:'spring-data-mirage', version: '0.3.1.RELEASE'
     compile group: 'org.springframework', name:'spring-tx', version: '4.1.5.RELEASE'
     compile group: 'org.springframework', name:'spring-jdbc', version: '4.1.5.RELEASE'
